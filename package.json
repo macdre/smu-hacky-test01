@@ -4,10 +4,12 @@
 	"private": true,
 	"scripts": {
 		"start": "node app.js"
+		"sass": "node-sass --source-map true public/sass/main.scss --output public/css"
 	},
 	"dependencies": {
 		"express": "4.13.x",
 		"cfenv": "1.0.x"
+		"node-sass": "^4.5.2"
 	},
 	"repository": {},
 	"engines": {

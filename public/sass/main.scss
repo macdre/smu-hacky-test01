@@ -1,0 +1,135 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video
+{ margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+{ display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+$bgc-main: #229AD2;
+$bgc-second: #506E94;
+$textColour-Light: #FFF;
+$textColour-Dark: #1B3562;
+
+//vendor Mixin
+//example: @include prefix((box-shadow:5px 5px 5px),[optional - limit the prefexs used])
+@mixin prefix($map, $vendors: webkit moz ms o) {
+    @each $prop,
+    $value in $map {
+        @if $vendors {
+            @each $vendor in $vendors {
+                #{"-" + $vendor + "-" + $prop}: #{$value};
+            }
+        }
+        // Dump regular property anyway
+        #{$prop}: #{$value};
+    }
+}
+
+@mixin font-Bold() {
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'Roboto', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 500;
+    font-stretch: normal;
+    letter-spacing: 3px;
+}
+@mixin font-Light() {
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'Roboto', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif;
+    font-weight: 300;
+    font-stretch: normal;
+}
+@mixin font-Thin() {
+    font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin", "HelveticaNeue", "Helvetica Neue", 'Roboto', "Arial", sans-serif;
+    font-weight: 100;
+    font-stretch: normal;
+}
+
+html,body{
+    height: 100%;
+    background-color: $bgc-second;
+}
+
+div#container{
+    margin: 0 auto;
+    max-width: 900px;
+    min-width: 300px;
+    padding: 0 150px;
+    background-color: $bgc-main;
+    height: 100%;
+    @include prefix((box-shadow: 0px 10px 18px rgba(78, 55, 104, 0.75)));
+}
+
+h1{
+    @include font-Bold();
+    font-size: 24px;
+    line-height: 30px;
+    color: $textColour-Light;
+}
+
+.header{
+    padding: 15px 0;
+    float:left;
+    width: 100%;
+    h1{
+        display: inline-block;
+    }
+    img{
+        display: inline-block;
+        float: right;
+        height:30px;
+        vertical-align: text-bottom;;
+
+    }
+}
+.jumbotron{
+    padding: 15px;
+    width: 100%;
+    background-color: #FFF;
+    display: block;
+    border-radius: 5px;
+    float: left;
+
+    textarea{
+        width: 100%;
+        border: 0;
+        resize: none;
+        outline: none;
+    }
+
+    a{
+        float: right;
+        display: inline-block;
+        text-decoration: none;
+        color: $textColour-Dark;
+        padding: 5px;
+        @include font-Thin();
+    }
+
+}
